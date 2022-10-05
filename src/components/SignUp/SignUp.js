@@ -138,7 +138,7 @@ async function signUpHandler(
   if (error) {
     alert("The data is incorrect!");
     setDisable(false);
-    setButtonCtt("Sing Up");
+    setButtonCtt("Sign Up");
     return;
   }
   try {
@@ -149,7 +149,7 @@ async function signUpHandler(
     console.log(error);
     alert(`${error.response.data}`);
     setDisable(false);
-    setButtonCtt("Sing Up");
+    setButtonCtt("Sign Up");
   }
 }
 
@@ -168,7 +168,7 @@ function Disabled({ disabled, children }) {
 const data = {
   Component: Bars,
   props: {
-    color: "#7bcca8",
+    color: "#2b503f",
     height: 40,
     width: 110,
   },

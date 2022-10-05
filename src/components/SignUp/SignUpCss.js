@@ -75,6 +75,9 @@ const Forms = styled.div`
 `;
 const SignUpButton = styled.button`
   background-color: #aad4c1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #f9f8f6;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
