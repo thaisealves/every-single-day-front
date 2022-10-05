@@ -5,7 +5,7 @@ import Food from "./Food";
 import Home from "./Home";
 import Login from "./Login";
 import MainPage from "./MainPage";
-import SignUp from "./SignUp";
+import SignUp from "./SignUp/SignUp";
 import Water from "./Water";
 import GlobalStyle from "./GlobalStyle";
 export default function App() {
