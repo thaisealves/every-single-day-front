@@ -33,7 +33,19 @@ export default function Login() {
       <div>
         <Forms>
           <Disabled disabled={disable}>
-            <Grid>
+            <Grid
+              component="form"
+              onSubmit={(e) =>
+                loginHandler(
+                  e,
+                  setDisable,
+                  password,
+                  email,
+                  setButtonCtt,
+                  navigate
+                )
+              }
+            >
               <CustomizedTextField
                 id="email"
                 label="E-mail"
@@ -58,21 +70,7 @@ export default function Login() {
                 fullWidth
               />
 
-              <LoginButton
-                type="submit"
-                onClick={(e) =>
-                  loginHandler(
-                    e,
-                    setDisable,
-                    password,
-                    email,
-                    setButtonCtt,
-                    navigate
-                  )
-                }
-              >
-                {buttonCtt}
-              </LoginButton>
+              <LoginButton type="submit">{buttonCtt}</LoginButton>
             </Grid>
           </Disabled>
         </Forms>

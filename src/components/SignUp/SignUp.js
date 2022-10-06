@@ -35,7 +35,21 @@ export default function SignUp() {
       <div>
         <Forms>
           <Disabled disabled={disable}>
-            <Grid>
+            <Grid
+              component="form"
+              onSubmit={(e) =>
+                signUpHandler(
+                  e,
+                  setDisable,
+                  name,
+                  password,
+                  email,
+                  confirmPassword,
+                  setButtonCtt,
+                  navigate
+                )
+              }
+            >
               <CustomizedTextField
                 id="name"
                 label="Name"
@@ -82,23 +96,7 @@ export default function SignUp() {
                 style={{ marginBottom: 11 }}
                 fullWidth
               />
-              <SignUpButton
-                type="submit"
-                onClick={(e) =>
-                  signUpHandler(
-                    e,
-                    setDisable,
-                    name,
-                    password,
-                    email,
-                    confirmPassword,
-                    setButtonCtt,
-                    navigate
-                  )
-                }
-              >
-                {buttonCtt}
-              </SignUpButton>
+              <SignUpButton type="submit">{buttonCtt}</SignUpButton>
             </Grid>
           </Disabled>
         </Forms>

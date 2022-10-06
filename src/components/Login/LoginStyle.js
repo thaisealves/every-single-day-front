@@ -66,11 +66,16 @@ const Forms = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+
   @media (min-width: 980px) {
     padding: 0 50px;
     box-sizing: border-box;
-
+    width: 100%;
     margin: 230px 0 100px 0;
+  }
+  & > form,
+  & > div {
+    width: 100%;
   }
 `;
 const LoginButton = styled.button`
