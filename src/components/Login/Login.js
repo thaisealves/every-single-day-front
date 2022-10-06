@@ -10,19 +10,17 @@ import {
   Forms,
   Container,
   Logo,
-  SignUpButton,
-} from "./SignUpStyle";
-import { signUpSchema } from "../../schemas/signUpSchema";
+  LoginButton,
+} from "./LoginStyle";
 import axios from "axios";
+import { loginSchema } from "../../schemas/loginSchema";
 
-export default function SignUp() {
+export default function Login() {
   const navigate = useNavigate();
   const mobile = useMediaQuery("(max-width:980px)");
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [buttonCtt, setButtonCtt] = useState("Sign Up");
+  const [buttonCtt, setButtonCtt] = useState("Login");
   const [disable, setDisable] = useState(false);
   return (
     <Container>
@@ -38,30 +36,16 @@ export default function SignUp() {
             <Grid
               component="form"
               onSubmit={(e) =>
-                signUpHandler(
+                loginHandler(
                   e,
                   setDisable,
-                  name,
                   password,
                   email,
-                  confirmPassword,
                   setButtonCtt,
                   navigate
                 )
               }
             >
-              <CustomizedTextField
-                id="name"
-                label="Name"
-                variant="outlined"
-                required
-                value={name}
-                disabled={disable}
-                onChange={(e) => setName(e.target.value)}
-                style={{ marginBottom: 11 }}
-                fullWidth
-              />
-
               <CustomizedTextField
                 id="email"
                 label="E-mail"
@@ -85,68 +69,54 @@ export default function SignUp() {
                 style={{ marginBottom: 11 }}
                 fullWidth
               />
-              <CustomizedTextField
-                id="confirmPassword"
-                label="Confirm Password"
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-                disabled={disable}
-                style={{ marginBottom: 11 }}
-                fullWidth
-              />
-              <SignUpButton type="submit">{buttonCtt}</SignUpButton>
+
+              <LoginButton type="submit">{buttonCtt}</LoginButton>
             </Grid>
           </Disabled>
         </Forms>
-        <Linked to={"/login"}>
-          Already have an account?
+        <Linked to={"/signup"}>
+          Doesn’t have an account?
           <br />
-          Let’s login!
+          Let’s sign up!
         </Linked>
       </div>
     </Container>
   );
 }
 
-async function signUpHandler(
+async function loginHandler(
   event,
   setDisable,
-  name,
   password,
   email,
-  confirmPassword,
   setButtonCtt,
   navigate
 ) {
-  const API_URL = "http://localhost:4000/signup";
+  const API_URL = "http://localhost:4000/login";
   event.preventDefault();
   setButtonCtt(<data.Component {...data.props} />);
   setDisable(true);
   const body = {
-    name,
     email,
     password,
-    confirmPassword,
   };
-  const { error } = signUpSchema.validate(body);
+  const { error } = loginSchema.validate(body);
 
   if (error) {
     alert("The data is incorrect!");
     setDisable(false);
-    setButtonCtt("Sign Up");
+    setButtonCtt("Login");
     return;
   }
   try {
     await axios.post(API_URL, body);
-    navigate("/login");
+    navigate("/home");
     setDisable(false);
   } catch (error) {
     console.log(error);
     alert(`${error.response.data}`);
     setDisable(false);
-    setButtonCtt("Sign Up");
+    setButtonCtt("Login");
   }
 }
 

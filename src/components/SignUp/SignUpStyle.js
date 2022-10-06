@@ -72,6 +72,10 @@ const Forms = styled.div`
 
     margin: 230px 0 100px 0;
   }
+  & > form,
+  & > div {
+    width: 100%;
+  }
 `;
 const SignUpButton = styled.button`
   background-color: #aad4c1;

@@ -3,7 +3,7 @@ import Diary from "./Diary";
 import Exercises from "./Exercises";
 import Food from "./Food";
 import Home from "./Home";
-import Login from "./Login";
+import Login from "./Login/Login";
 import MainPage from "./MainPage";
 import SignUp from "./SignUp/SignUp";
 import Water from "./Water";
