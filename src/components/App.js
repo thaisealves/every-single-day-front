@@ -11,6 +11,7 @@ import GlobalStyle from "./GlobalStyle";
 import Header from "./Layout/Header";
 import PageContext from "./PageContext";
 import { useState } from "react";
+import Footer from "./Layout/Footer";
 export default function App() {
   const [pageName, setPageName] = useState("");
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path={"/home"} element={<Home />} />
           <Route path={"/water"} element={<Water />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </PageContext.Provider>
   );

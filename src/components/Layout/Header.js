@@ -31,18 +31,21 @@ const Container = styled.div`
   padding: 0 10px;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.103);
+  position: fixed;
+  top: 0;
+  left: 0;
   img {
     height: 40px;
   }
-  h1{
+  h1 {
     font-weight: 400;
     font-size: 18px;
     font-family: "Coustard", serif;
-    color: #40677B;
+    color: #40677b;
   }
 `;
 
 const User = styled(BiUser)`
-  color: #7c9982;
+  color: #355326;
   font-size: 18px;
 `;
