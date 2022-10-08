@@ -34,7 +34,7 @@ const Container = styled.div`
   justify-content: space-between;
   padding: 0 10px;
   box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.103);
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.103);
   position: fixed;
   bottom: 0;
   left: 0;
