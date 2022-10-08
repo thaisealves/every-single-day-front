@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 /* part where the reset.css is settled down */
@@ -35,7 +35,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	/* width: 100%; */
 	line-height: 1;
-	font-family: 'Raleway', sans-serif;; /* putting the same font for the whole code */
+	font-family: 'Raleway', sans-serif; /* putting the same font for the whole code */
 }
 ol, ul {
 	list-style: none;

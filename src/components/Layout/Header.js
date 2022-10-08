@@ -3,8 +3,10 @@ import logo from "../../assets/images/target.png";
 import { BiUser } from "react-icons/bi";
 import PageContext from "../PageContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 export default function Header() {
   const { pageName } = useContext(PageContext);
+  const navigate = useNavigate();
   if (
     window.location.pathname === "/" ||
     window.location.pathname === "/login" ||
@@ -14,7 +16,12 @@ export default function Header() {
   }
   return (
     <Container>
-      <img src={logo} alt={"Logo"} title={"1%ESD"} />
+      <img
+        src={logo}
+        alt={"Logo"}
+        title={"1%ESD"}
+        onClick={() => navigate("/")}
+      />
       <h1>{pageName}</h1>
       <User />
     </Container>
@@ -34,6 +41,7 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 2000;
   img {
     height: 40px;
   }
