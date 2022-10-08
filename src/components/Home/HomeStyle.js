@@ -29,36 +29,35 @@ const Mood = styled.div`
     text-align: center;
     margin-bottom: 10px;
   }
+  .MuiToggleButton-root {
+    border: none;
+  }
+  
 `;
 
 const Happy = styled(CgSmileMouthOpen)`
   color: #355326;
   font-size: 56px;
-  background-color: #6868682a;
   border-radius: 5px;
 `;
 const Good = styled(CgSmile)`
   color: #7c9982;
   font-size: 56px;
-  background-color: #6868682a;
   border-radius: 5px;
 `;
 const Average = styled(CgSmileNone)`
   color: #d6ab7e;
   font-size: 56px;
-  background-color: #6868682a;
   border-radius: 5px;
 `;
 const Bad = styled(CgSmileSad)`
   color: #d18a39;
   font-size: 56px;
-  background-color: #6868682a;
   border-radius: 5px;
 `;
 const Awful = styled(IoSadOutline)`
   color: #b39d96;
   font-size: 56px;
-  background-color: #6868682a;
   border-radius: 5px;
 `;
 const Pictures = styled.div`

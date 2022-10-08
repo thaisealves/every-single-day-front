@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { BsGrid1X2 } from "react-icons/bs";
 import { CgGym } from "react-icons/cg";
-import { MdOutlineWaterDrop, MdOutlineRestaurant } from "react-icons/md";
+import { MdOutlineWaterDrop, MdOutlineRestaurant, MdOutlineViewQuilt } from "react-icons/md";
 import { TbNotebook } from "react-icons/tb";
 import { IconContext } from "react-icons";
 import { Link } from "react-router-dom";
@@ -23,7 +22,7 @@ export default function Footer() {
           <MdOutlineWaterDrop />
         </Link>
         <Link to={"/home"}>
-          <BsGrid1X2 />
+          <MdOutlineViewQuilt />
         </Link>
         <Link to={"/diary"}>
           <TbNotebook />

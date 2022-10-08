@@ -6,6 +6,8 @@ import {
   SpeedDialAction,
   ImageListItem,
   ImageList,
+  ToggleButtonGroup,
+  ToggleButton,
 } from "@mui/material";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import {
@@ -35,7 +37,11 @@ export default function Home() {
       Authorization: `Bearer ${token}`,
     },
   };
+  const [alignment, setAlignment] = useState("bad");
 
+  const handleAlignment = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
   useEffect(() => {
     setPageName("Vision Board");
   }, []);
@@ -49,13 +55,29 @@ export default function Home() {
     <Container>
       <Mood>
         <h2>How was the average of today?</h2>
-        <div>
-          <Happy />
-          <Good />
-          <Average />
-          <Bad />
-          <Awful />
-        </div>
+        <ToggleButtonGroup
+          color="success"
+          value={alignment}
+          exclusive
+          onChange={handleAlignment}
+          aria-label="Moods"
+        >
+          <ToggleButton value="happy" aria-label="happy">
+            <Happy />
+          </ToggleButton>
+          <ToggleButton value="good" aria-label="good">
+            <Good />
+          </ToggleButton>
+          <ToggleButton value="average" aria-label="average">
+            <Average />
+          </ToggleButton>
+          <ToggleButton value="bad" aria-label="bad">
+            <Bad />
+          </ToggleButton>
+          <ToggleButton value="awful" aria-label="awful">
+            <Awful />
+          </ToggleButton>
+        </ToggleButtonGroup>
       </Mood>
       {visions.length > 0 ? (
         <Pictures>
