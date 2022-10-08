@@ -52,5 +52,6 @@ const Awful = styled(IoSadOutline)`
   background-color: #6868682a;
   border-radius: 5px;
 `;
-
-export { Container, Mood, Awful, Bad, Average, Good, Happy };
+const Pictures = styled.div`
+`
+export { Container, Mood, Awful, Bad, Average, Good, Happy, Pictures };

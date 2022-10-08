@@ -109,8 +109,9 @@ async function loginHandler(
     return;
   }
   try {
-    await axios.post(API_URL, body);
+    const resp = await axios.post(API_URL, body);
     navigate("/home");
+    localStorage.setItem("token", resp.data.token);
     setDisable(false);
   } catch (error) {
     console.log(error);
