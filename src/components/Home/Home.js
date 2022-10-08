@@ -24,24 +24,36 @@ import {
 import dayjs from "dayjs";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 export default function Home() {
   const { setPageName } = useContext(PageContext);
   const [open, setOpen] = useState(false);
   const [visions, setVisions] = useState([]);
+  const [mood, setMood] = useState("");
+
   const token = localStorage.getItem("token");
+  const date = dayjs();
   const navigate = useNavigate();
+
   const URL_VISION_GET = "http://localhost:4000/visions";
-  const URL_MOOD = "http://localhost:4000/mood";
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  const [alignment, setAlignment] = useState("bad");
 
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
-  };
+  useEffect(async () => {
+    const day = date.format("DD-MM-YYYY");
+    const URL_MOOD = `http://localhost:4000/mood/${day}`;
+    try {
+      const response = await axios.get(URL_MOOD, config);
+      console.log(response);
+      setMood(response.data.mood);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   useEffect(() => {
     setPageName("Vision Board");
   }, []);
@@ -50,6 +62,22 @@ export default function Home() {
     const response = await axios.get(URL_VISION_GET, config);
     setVisions(response.data);
   }, []);
+  
+  const handleMood = async (event, newMood) => {
+    const URL_MOOD = `http://localhost:4000/mood`;
+    const createdAt = date.format("DD-MM-YYYY");
+
+    const body = {
+      mood: newMood,
+      createdAt,
+    };
+    try {
+      await axios.post(URL_MOOD, body, config);
+    } catch (error) {
+      console.log(error);
+    }
+    setMood(newMood);
+  };
 
   return (
     <Container>
@@ -57,9 +85,9 @@ export default function Home() {
         <h2>How was the average of today?</h2>
         <ToggleButtonGroup
           color="success"
-          value={alignment}
+          value={mood}
           exclusive
-          onChange={handleAlignment}
+          onChange={handleMood}
           aria-label="Moods"
         >
           <ToggleButton value="happy" aria-label="happy">
