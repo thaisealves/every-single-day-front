@@ -16,10 +16,19 @@ const Container = styled.div`
 
 const Mood = styled.div`
   display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  justify-content: space-between;
   padding: 10px;
+  div {
+    justify-content: space-between;
+    display: flex;
+  }
+  h2 {
+    color: #40677b;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 `;
 
 const Happy = styled(CgSmileMouthOpen)`
@@ -52,6 +61,28 @@ const Awful = styled(IoSadOutline)`
   background-color: #6868682a;
   border-radius: 5px;
 `;
-const Pictures = styled.div`
-`
-export { Container, Mood, Awful, Bad, Average, Good, Happy, Pictures };
+const Pictures = styled.div``;
+const NoPicture = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  h3 {
+    width: 100%;
+    color: #40677b;
+    font-weight: 400;
+    text-align: center;
+  }
+`;
+
+export {
+  Container,
+  Mood,
+  Awful,
+  Bad,
+  Average,
+  Good,
+  Happy,
+  Pictures,
+  NoPicture,
+};
