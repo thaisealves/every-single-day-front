@@ -4,6 +4,7 @@ import { CgGym } from "react-icons/cg";
 import { MdOutlineWaterDrop, MdOutlineRestaurant } from "react-icons/md";
 import { TbNotebook } from "react-icons/tb";
 import { IconContext } from "react-icons";
+import { Link } from "react-router-dom";
 export default function Footer() {
   if (
     window.location.pathname === "/" ||
@@ -15,11 +16,21 @@ export default function Footer() {
   return (
     <IconContext.Provider value={{ color: "#355326", size: "20px" }}>
       <Container>
-        <CgGym />
-        <MdOutlineWaterDrop />
-        <BsGrid1X2 />
-        <TbNotebook />
-        <MdOutlineRestaurant />
+        <Link to={"/exercises"}>
+          <CgGym />
+        </Link>
+        <Link to={"/water"}>
+          <MdOutlineWaterDrop />
+        </Link>
+        <Link to={"/home"}>
+          <BsGrid1X2 />
+        </Link>
+        <Link to={"/diary"}>
+          <TbNotebook />
+        </Link>
+        <Link to={"/food"}>
+          <MdOutlineRestaurant />
+        </Link>
       </Container>
     </IconContext.Provider>
   );
