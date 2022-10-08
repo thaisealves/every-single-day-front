@@ -1,4 +1,4 @@
-import logo from "../assets/images/target.png";
+import logo from "../../assets/images/target.png";
 import { useNavigate } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Container, LoginButton, SignUpButton, Buttons } from "./MainPageStyle";

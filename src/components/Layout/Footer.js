@@ -49,6 +49,7 @@ const Container = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 2000;
   img {
     height: 40px;
   }

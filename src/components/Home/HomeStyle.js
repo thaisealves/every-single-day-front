@@ -61,7 +61,9 @@ const Awful = styled(IoSadOutline)`
   background-color: #6868682a;
   border-radius: 5px;
 `;
-const Pictures = styled.div``;
+const Pictures = styled.div`
+  padding-bottom: 70px;
+`;
 const NoPicture = styled.div`
   display: flex;
   align-items: center;

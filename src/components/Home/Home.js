@@ -21,16 +21,13 @@ import {
 } from "./HomeStyle";
 import dayjs from "dayjs";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function Home() {
   const { setPageName } = useContext(PageContext);
-  useEffect(() => {
-    setPageName("Vision Board");
-  }, []);
   const [open, setOpen] = useState(false);
   const [visions, setVisions] = useState([]);
   const token = localStorage.getItem("token");
-  const date = dayjs();
-  const URL_VISION_POST = "http://localhost:4000/vision";
+  const navigate = useNavigate();
   const URL_VISION_GET = "http://localhost:4000/visions";
   const URL_MOOD = "http://localhost:4000/mood";
   const config = {
@@ -38,11 +35,16 @@ export default function Home() {
       Authorization: `Bearer ${token}`,
     },
   };
+
+  useEffect(() => {
+    setPageName("Vision Board");
+  }, []);
+
   useEffect(async () => {
     const response = await axios.get(URL_VISION_GET, config);
     setVisions(response.data);
   }, []);
-  console.log(visions);
+
   return (
     <Container>
       <Mood>
@@ -84,7 +86,7 @@ export default function Home() {
       )}
       <SpeedDial
         ariaLabel="Adding a vision"
-        sx={{ position: "absolute", bottom: 80, right: 16 }}
+        sx={{ position: "fixed", bottom: 65, right: 16 }}
         icon={<SpeedDialIcon />}
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
@@ -94,6 +96,7 @@ export default function Home() {
           icon={<HiOutlinePhotograph />}
           tooltipTitle={"Vision"}
           tooltipOpen
+          onClick={() => navigate("/vision")}
         />
       </SpeedDial>
     </Container>
