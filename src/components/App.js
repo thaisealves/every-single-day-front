@@ -1,5 +1,5 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Diary from "./Diary";
+import Diary from "./Diary/Diary";
 import Exercises from "./Exercises";
 import Food from "./Food";
 import Home from "./Home/Home";
@@ -13,6 +13,8 @@ import PageContext from "./PageContext";
 import { useState } from "react";
 import Footer from "./Layout/Footer";
 import AddVision from "./Home/AddVision";
+import NewDiary from "./Diary/NewDiary";
+import NewPlan from "./Diary/NewPlan";
 export default function App() {
   const [pageName, setPageName] = useState("");
   return (
@@ -30,6 +32,8 @@ export default function App() {
           <Route path={"/home"} element={<Home />} />
           <Route path={"/water"} element={<Water />} />
           <Route path={"/vision"} element={<AddVision />} />
+          <Route path={"/newdiary"} element={<NewDiary />} />
+          <Route path={"/newplan"} element={<NewPlan />} />
         </Routes>
         <Footer />
       </BrowserRouter>
