@@ -7,6 +7,12 @@ const Container = styled.div`
     color: #40677b;
     font-family: "Coustard";
   }
+  h2 {
+    text-align: center;
+    color: #355326;
+    font-family: "Coustard";
+    margin-top: 20vh;
+  }
   .MuiSpeedDial-root button {
     background-color: #7c9982;
   }

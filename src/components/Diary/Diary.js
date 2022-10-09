@@ -52,18 +52,23 @@ export default function Diary() {
   return (
     <Container>
       <h1>{date.format("DD/MM/YYYY, dddd")}</h1>
-      {diaries.map((el) =>
-        el.type === "diary" ? (
-          <Texts>
-            <h1>Diary</h1> <Box>{el.text}</Box>
-          </Texts>
-        ) : (
-          <Texts>
-            <h1>Plans</h1>
-            <Box>{el.text}</Box>
-          </Texts>
+      {diaries.length === 0 ? (
+        <h2>You don't have Diary or Plans for today</h2>
+      ) : (
+        diaries.map((el) =>
+          el.type === "diary" ? (
+            <Texts>
+              <h1>Diary</h1> <Box>{el.text}</Box>
+            </Texts>
+          ) : (
+            <Texts>
+              <h1>Plans</h1>
+              <Box>{el.text}</Box>
+            </Texts>
+          )
         )
       )}
+
       <SpeedDial
         ariaLabel="Adding a vision"
         sx={{ position: "fixed", bottom: 65, right: 16 }}
