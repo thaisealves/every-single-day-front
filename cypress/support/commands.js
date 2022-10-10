@@ -23,3 +23,26 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("signUp", (user) => {
+  cy.get('[data-cy="signup"]').click();
+
+  cy.url().should("equal", "http://localhost:3000/signup");
+
+  cy.get('[data-cy="name"]').type(user.name);
+  cy.get('[data-cy="email"]').type(user.email);
+  cy.get('[data-cy="password"]').type(user.password);
+  cy.get('[data-cy="confirmPassword"]').type(user.confirmPassword);
+  cy.get('[data-cy="signUpButton"]').click();
+});
+
+Cypress.Commands.add("login", (user) => {
+  cy.visit("http://localhost:3000/");
+  cy.get('[data-cy="login"]').click();
+
+  cy.url().should("equal", "http://localhost:3000/login");
+
+  cy.get('[data-cy="email"]').type(user.email);
+  cy.get('[data-cy="password"]').type(user.password);
+  cy.get('[data-cy="loginButton"]').click();
+});
