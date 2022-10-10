@@ -6,7 +6,7 @@ import Home from "./Home/Home";
 import Login from "./Login/Login";
 import MainPage from "./MainPage/MainPage";
 import SignUp from "./SignUp/SignUp";
-import Water from "./Water";
+import Water from "./Water/Water";
 import GlobalStyle from "./GlobalStyle";
 import Header from "./Layout/Header";
 import PageContext from "./PageContext";
@@ -15,6 +15,8 @@ import Footer from "./Layout/Footer";
 import AddVision from "./Home/AddVision";
 import NewDiary from "./Diary/NewDiary";
 import NewPlan from "./Diary/NewPlan";
+import AddWater from "./Water/AddWater";
+import AddWeight from "./Water/AddWeight";
 export default function App() {
   const [pageName, setPageName] = useState("");
   return (
@@ -34,6 +36,8 @@ export default function App() {
           <Route path={"/vision"} element={<AddVision />} />
           <Route path={"/newdiary"} element={<NewDiary />} />
           <Route path={"/newplan"} element={<NewPlan />} />
+          <Route path={"/addwater"} element={<AddWater />} />
+          <Route path={"/addweight"} element={<AddWeight />} />
         </Routes>
         <Footer />
       </BrowserRouter>
