@@ -31,7 +31,7 @@ This is a project designed and developed by me. The idea is to have the user to 
 
 Page to redirects to Sing Up and Login, the main page from the app
 
-```http
+```
 /
 ```
 
@@ -39,7 +39,7 @@ Page to redirects to Sing Up and Login, the main page from the app
 
 To add a new user on the application
 
-```http
+```
 /signup
 ```
 
@@ -51,7 +51,7 @@ To add a new user on the application
 
 Entering the application. The user is redirected to this page if there's no token
 
-```http
+```
 /login
 ```
 
@@ -63,7 +63,7 @@ Entering the application. The user is redirected to this page if there's no toke
 
 Where the vision board is setted, you can see the pictures that you added. In this same route, the user can set what is his mood of the day.
 
-```http
+```
 /home
 ```
 
@@ -73,7 +73,7 @@ Where the vision board is setted, you can see the pictures that you added. In th
 
 Where the user can put an url for the image he wants on the vision board
 
-```http
+```
 /vision
 ```
 
@@ -83,7 +83,7 @@ Where the user can put an url for the image he wants on the vision board
 
 Where the user can see his plans and diary for the day
 
-```http
+```
 /diary
 ```
 
@@ -93,7 +93,7 @@ Where the user can see his plans and diary for the day
 
 Where the user can post a new diary if it doesn't exists yet
 
-```http
+```
 /newdiary
 ```
 
@@ -103,7 +103,7 @@ Where the user can post a new diary if it doesn't exists yet
 
 Where the user can post a new plan text if it doesn't exists yet
 
-```http
+```
 /newplan
 ```
 
@@ -113,7 +113,7 @@ Where the user can post a new plan text if it doesn't exists yet
 
 Where the user can see the amount of water drinked and what's his goal
 
-```http
+```
 /water
 ```
 
@@ -123,7 +123,7 @@ Where the user can see the amount of water drinked and what's his goal
 
 Where the user can post a new amount of water drinked
 
-```http
+```
 /addwater
 ```
 
@@ -133,7 +133,7 @@ Where the user can post a new amount of water drinked
 
 Where the user can post a new weight to see how much water should be drinked
 
-```http
+```
 /addweight
 ```
 
@@ -143,7 +143,7 @@ Where the user can post a new weight to see how much water should be drinked
 
 The user can log out from the plataform, this route is reached by clicking on the user icon on header
 
-```http
+```
 /logout
 ```
 
