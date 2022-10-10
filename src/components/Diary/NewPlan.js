@@ -24,6 +24,12 @@ export default function NewPlan() {
       Authorization: `Bearer ${token}`,
     },
   };
+  useEffect(() => {
+    if (!token) {
+      alert("You must login")
+      navigate("/");
+    }
+  }, [token]);
   return (
     <Container>
       <h2>{date}</h2>
@@ -54,7 +60,7 @@ export default function NewPlan() {
 
 async function handleSend(text, config, navigate) {
   const createdAt = dayjs().format("DD-MM-YYYY");
-  const URL_API = "http://localhost:4000/diary";
+  const URL_API = "https://every-single-day.herokuapp.com/diary";
   const body = {
     type: "plans",
     text,

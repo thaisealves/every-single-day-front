@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import PageContext from "../PageContext";
 import { useNavigate } from "react-router-dom";
 import {
   Container,
@@ -10,7 +11,11 @@ import {
 } from "./AddVisionStyle";
 
 export default function AddVision() {
-  const URL_VISION_POST = "http://localhost:4000/vision";
+  const URL_VISION_POST = "https://every-single-day.herokuapp.com/vision";
+  const { setPageName } = useContext(PageContext);
+  useEffect(() => {
+    setPageName("Vision Board");
+  }, []);
   const navigate = useNavigate();
   const [image, setImage] = useState("");
   const token = localStorage.getItem("token");
@@ -19,6 +24,12 @@ export default function AddVision() {
       Authorization: `Bearer ${token}`,
     },
   };
+  useEffect(() => {
+    if (!token) {
+      alert("You must login");
+      navigate("/");
+    }
+  }, [token]);
 
   return (
     <Container>

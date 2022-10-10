@@ -25,6 +25,12 @@ export default function AddWater() {
       Authorization: `Bearer ${token}`,
     },
   };
+  useEffect(() => {
+    if (!token) {
+      alert("You must login")
+      navigate("/");
+    }
+  }, [token]);
   return (
     <Container>
       <h2>{date}</h2>
@@ -60,7 +66,7 @@ export default function AddWater() {
 
 async function handleSend(water, config, navigate) {
   const createdAt = dayjs().format("DD-MM-YYYY");
-  const URL_API = "http://localhost:4000/water";
+  const URL_API = "swater";
   const body = {
     waterQuantity: Number(water),
     createdAt,

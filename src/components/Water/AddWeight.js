@@ -25,6 +25,12 @@ export default function AddWeight() {
       Authorization: `Bearer ${token}`,
     },
   };
+  useEffect(() => {
+    if (!token) {
+      alert("You must login")
+      navigate("/");
+    }
+  }, [token]);
   return (
     <Container>
       <h2>{date}</h2>
@@ -51,7 +57,7 @@ export default function AddWeight() {
 
 async function handleSend(weight, config, navigate) {
   const createdAt = dayjs().format("DD-MM-YYYY");
-  const URL_API = "http://localhost:4000/weight";
+  const URL_API = "https://every-single-day.herokuapp.com/weight";
   const body = {
     weight: Number(weight),
     createdAt,

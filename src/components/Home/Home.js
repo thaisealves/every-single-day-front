@@ -35,7 +35,14 @@ export default function Home() {
   const date = dayjs();
   const navigate = useNavigate();
 
-  const URL_VISION_GET = "http://localhost:4000/visions";
+  useEffect(() => {
+    if (!token) {
+      alert("You must login")
+      navigate("/");
+    }
+  }, [token]);
+  
+  const URL_VISION_GET = "https://every-single-day.herokuapp.com/visions";
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -44,10 +51,9 @@ export default function Home() {
 
   useEffect(async () => {
     const day = date.format("DD-MM-YYYY");
-    const URL_MOOD = `http://localhost:4000/mood/${day}`;
+    const URL_MOOD = `https://every-single-day.herokuapp.com/mood/${day}`;
     try {
       const response = await axios.get(URL_MOOD, config);
-      console.log(response);
       setMood(response.data.mood);
     } catch (error) {
       console.log(error);
@@ -64,7 +70,7 @@ export default function Home() {
   }, []);
 
   const handleMood = async (event, newMood) => {
-    const URL_MOOD = `http://localhost:4000/mood`;
+    const URL_MOOD = `https://every-single-day.herokuapp.com/mood`;
     const createdAt = date.format("DD-MM-YYYY");
 
     const body = {
