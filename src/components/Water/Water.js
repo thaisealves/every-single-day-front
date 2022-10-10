@@ -70,10 +70,11 @@ export default function Water() {
       {weight ? (
         <Amount>
           <h1>
-            Ideal amount of Water: <span> {weight * 0.05}L/Day </span>
+            Ideal amount of Water:{" "}
+            <span> {Math.ceil(weight * 0.05)}L/Day </span>
           </h1>
           <h1>
-            Min. amount of Water:<span> {weight * 0.03}L/Day</span>
+            Min. amount of Water:<span> {Math.ceil(weight * 0.03)}L/Day</span>
           </h1>
           {water ? (
             <>
@@ -92,7 +93,7 @@ export default function Water() {
         <Amount>
           {water ? (
             <h1>
-              You've drinked: <span> {water} L</span>
+              You've drinked: <span> {water}L</span>
             </h1>
           ) : null}
           <h1>
