@@ -56,6 +56,7 @@ export default function Login() {
                 disabled={disable}
                 style={{ marginBottom: 11 }}
                 fullWidth
+                data-cy="email"
               />
 
               <CustomizedTextField
@@ -68,9 +69,10 @@ export default function Login() {
                 required
                 style={{ marginBottom: 11 }}
                 fullWidth
+                data-cy="password"
               />
 
-              <LoginButton type="submit">{buttonCtt}</LoginButton>
+              <LoginButton data-cy="loginButton" type="submit">{buttonCtt}</LoginButton>
             </Grid>
           </Disabled>
         </Forms>
