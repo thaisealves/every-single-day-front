@@ -71,15 +71,15 @@ export default function Water() {
         <Amount>
           <h1>
             Ideal amount of Water:{" "}
-            <span> {Math.ceil(weight * 0.05)}L/Day </span>
+            <span> {(weight * 0.05).toFixed(2)}L/Day </span>
           </h1>
           <h1>
-            Min. amount of Water:<span> {Math.ceil(weight * 0.03)}L/Day</span>
+            Min. amount of Water:<span> {(weight * 0.03).toFixed(2)}L/Day</span>
           </h1>
           {water ? (
             <>
               <h1>
-                You've drinked: <span> {water} L</span>
+                You've drinked: <span> {water}L</span>
               </h1>
               <BorderLinearProgress
                 color="success"
