@@ -68,9 +68,9 @@ export default function Water() {
     <Container>
       <h1>{date.format("DD/MM/YYYY, dddd")}</h1>
       {weight ? (
-        <Amount>
+        <Amount data-cy="amount">
           <h1>
-            Ideal amount of Water:{" "}
+            Ideal amount of Water:
             <span> {(weight * 0.05).toFixed(2)}L/Day </span>
           </h1>
           <h1>
@@ -81,10 +81,11 @@ export default function Water() {
               <h1>
                 You've drinked: <span> {water}L</span>
               </h1>
-              <BorderLinearProgress
+              <BorderLinearProgress 
                 color="success"
                 variant="determinate"
                 value={percentage}
+                data-cy="progress"
               />
             </>
           ) : null}
@@ -117,6 +118,7 @@ export default function Water() {
             key={el.type}
             id={el.type}
             onClick={() => handleAction(el.type, navigate)}
+            data-cy={el.type}
           />
         ))}
       </SpeedDial>

@@ -41,10 +41,18 @@ export default function AddWater() {
         }}
         onChange={(e) => setWater(e.target.value)}
         fullWidth={true}
+        data-cy="addwater"
       />
       <Adding>
-        <Cancel onClick={() => navigate("/water")}>Cancel</Cancel>
-        <Send onClick={() => handleSend(water, config, navigate)}>Send</Send>
+        <Cancel data-cy="cancel" onClick={() => navigate("/water")}>
+          Cancel
+        </Cancel>
+        <Send
+          data-cy="send"
+          onClick={() => handleSend(water, config, navigate)}
+        >
+          Send
+        </Send>
       </Adding>
     </Container>
   );

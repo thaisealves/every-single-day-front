@@ -39,10 +39,11 @@ export default function AddWeight() {
         }}
         onChange={(e) => setWeight(e.target.value)}
         fullWidth={true}
+        data-cy="addweight"
       />
       <Adding>
-        <Cancel onClick={() => navigate("/water")}>Cancel</Cancel>
-        <Send onClick={() => handleSend(weight, config, navigate)}>Send</Send>
+        <Cancel data-cy="cancel" onClick={() => navigate("/water")}>Cancel</Cancel>
+        <Send data-cy="send" onClick={() => handleSend(weight, config, navigate)}>Send</Send>
       </Adding>
     </Container>
   );

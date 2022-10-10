@@ -5,7 +5,6 @@ describe("Diaries possibilities", () => {
     cy.visit("http://localhost:3000/");
 
     const user = newUser();
-    cy.intercept("POST");
     cy.intercept("POST", "http://localhost:4000/signup").as("newUser");
     cy.signUp(user);
 
@@ -22,7 +21,6 @@ describe("Diaries possibilities", () => {
     cy.visit("http://localhost:3000/");
 
     const user = newUser();
-    cy.intercept("POST");
     cy.intercept("POST", "http://localhost:4000/signup").as("newUser");
     cy.signUp(user);
 
@@ -44,7 +42,6 @@ describe("Diaries possibilities", () => {
     cy.visit("http://localhost:3000/");
 
     const user = newUser();
-    cy.intercept("POST");
     cy.intercept("POST", "http://localhost:4000/signup").as("newUser");
     cy.signUp(user);
 
@@ -66,7 +63,6 @@ describe("Diaries possibilities", () => {
     cy.visit("http://localhost:3000/");
 
     const user = newUser();
-    cy.intercept("POST");
     cy.intercept("POST", "http://localhost:4000/signup").as("newUser");
     cy.signUp(user);
 
