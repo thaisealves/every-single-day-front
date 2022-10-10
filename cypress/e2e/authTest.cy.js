@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import newUser from "./factories/newUser";
 
 beforeEach(async () => {
@@ -36,7 +35,7 @@ describe("Testing the auth routes", () => {
     cy.get('[data-cy="signUpButton"]').click();
 
     cy.url().should("equal", "http://localhost:3000/login");
-    
+
     cy.get('[data-cy="email"]').type(user.email);
     cy.get('[data-cy="password"]').type(user.password);
     cy.get('[data-cy="loginButton"]').click();
