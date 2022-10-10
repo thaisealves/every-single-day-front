@@ -38,10 +38,15 @@ export default function NewPlan() {
         defaultValue={plan}
         onChange={(e) => setPlan(e.target.value)}
         fullWidth={true}
+        data-cy="newplan"
       />
       <Adding>
-        <Cancel onClick={() => navigate("/diary")}>Cancel</Cancel>
-        <Send onClick={() => handleSend(plan, config, navigate)}>Send</Send>
+        <Cancel data-cy="cancel" onClick={() => navigate("/diary")}>
+          Cancel
+        </Cancel>
+        <Send data-cy="send" onClick={() => handleSend(plan, config, navigate)}>
+          Send
+        </Send>
       </Adding>
     </Container>
   );
