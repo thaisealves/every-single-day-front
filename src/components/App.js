@@ -17,6 +17,7 @@ import NewDiary from "./Diary/NewDiary";
 import NewPlan from "./Diary/NewPlan";
 import AddWater from "./Water/AddWater";
 import AddWeight from "./Water/AddWeight";
+import Logout from "./Layout/Logout";
 export default function App() {
   const [pageName, setPageName] = useState("");
   return (
@@ -38,6 +39,7 @@ export default function App() {
           <Route path={"/newplan"} element={<NewPlan />} />
           <Route path={"/addwater"} element={<AddWater />} />
           <Route path={"/addweight"} element={<AddWeight />} />
+          <Route path={"/logout"} element={<Logout />} />
         </Routes>
         <Footer />
       </BrowserRouter>

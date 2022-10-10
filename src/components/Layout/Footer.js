@@ -1,14 +1,19 @@
 import styled from "styled-components";
 import { CgGym } from "react-icons/cg";
-import { MdOutlineWaterDrop, MdOutlineRestaurant, MdOutlineViewQuilt } from "react-icons/md";
+import {
+  MdOutlineWaterDrop,
+  MdOutlineRestaurant,
+  MdOutlineViewQuilt,
+} from "react-icons/md";
 import { TbNotebook } from "react-icons/tb";
 import { IconContext } from "react-icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 export default function Footer() {
+  const location = useLocation();
   if (
-    window.location.pathname === "/" ||
-    window.location.pathname === "/login" ||
-    window.location.pathname === "/signup"
+    location.pathname === "/" ||
+    location.pathname === "/login" ||
+    location.pathname === "/signup"
   ) {
     return null;
   }
@@ -18,16 +23,16 @@ export default function Footer() {
         <Link data-cy="exercisesFooter" to={"/exercises"}>
           <CgGym />
         </Link>
-        <Link data-cy="waterFooter"to={"/water"}>
+        <Link data-cy="waterFooter" to={"/water"}>
           <MdOutlineWaterDrop />
         </Link>
-        <Link data-cy="homeFooter"to={"/home"}>
+        <Link data-cy="homeFooter" to={"/home"}>
           <MdOutlineViewQuilt />
         </Link>
         <Link data-cy="diaryFooter" to={"/diary"}>
           <TbNotebook />
         </Link>
-        <Link data-cy="foodFooter"to={"/food"}>
+        <Link data-cy="foodFooter" to={"/food"}>
           <MdOutlineRestaurant />
         </Link>
       </Container>
