@@ -60,6 +60,7 @@ export default function SignUp() {
                 onChange={(e) => setName(e.target.value)}
                 style={{ marginBottom: 11 }}
                 fullWidth
+                data-cy="name"
               />
 
               <CustomizedTextField
@@ -72,6 +73,7 @@ export default function SignUp() {
                 disabled={disable}
                 style={{ marginBottom: 11 }}
                 fullWidth
+                data-cy="email"
               />
 
               <CustomizedTextField
@@ -84,6 +86,7 @@ export default function SignUp() {
                 required
                 style={{ marginBottom: 11 }}
                 fullWidth
+                data-cy="password"
               />
               <CustomizedTextField
                 id="confirmPassword"
@@ -95,8 +98,11 @@ export default function SignUp() {
                 disabled={disable}
                 style={{ marginBottom: 11 }}
                 fullWidth
+                data-cy="confirmPassword"
               />
-              <SignUpButton type="submit">{buttonCtt}</SignUpButton>
+              <SignUpButton data-cy="signUpButton" type="submit">
+                {buttonCtt}
+              </SignUpButton>
             </Grid>
           </Disabled>
         </Forms>
