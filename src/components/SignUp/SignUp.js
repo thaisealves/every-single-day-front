@@ -126,7 +126,7 @@ async function signUpHandler(
   setButtonCtt,
   navigate
 ) {
-  const API_URL = "http://localhost:4000/signup";
+  const API_URL = "https://every-single-day.herokuapp.com/signup";
   event.preventDefault();
   setButtonCtt(<data.Component {...data.props} />);
   setDisable(true);

@@ -94,7 +94,7 @@ async function loginHandler(
   setButtonCtt,
   navigate
 ) {
-  const API_URL = "http://localhost:4000/login";
+  const API_URL = "https://every-single-day.herokuapp.com/login";
   event.preventDefault();
   setButtonCtt(<data.Component {...data.props} />);
   setDisable(true);

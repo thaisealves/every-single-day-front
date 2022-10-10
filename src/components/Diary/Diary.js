@@ -13,7 +13,7 @@ export default function Diary() {
   const navigate = useNavigate();
   useEffect(() => {
     if (!token) {
-      alert("You must login")
+      alert("You must login");
       navigate("/");
     }
   }, [token]);
@@ -32,7 +32,7 @@ export default function Diary() {
     },
   };
   useEffect(async () => {
-    const URL_API = `http://localhost:4000/diary/${date.format("DD-MM-YYYY")}`;
+    const URL_API = `https://every-single-day.herokuapp.com/diary/${date.format("DD-MM-YYYY")}`;
     try {
       const response = await axios.get(URL_API, config);
       setDiaries(response.data);

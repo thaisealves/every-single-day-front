@@ -33,7 +33,7 @@ export default function Water() {
     }
   }, [token]);
   useEffect(async () => {
-    const URL_API_WATER = `http://localhost:4000/water/${date.format(
+    const URL_API_WATER = `https://every-single-day.herokuapp.com/water/${date.format(
       "DD-MM-YYYY"
     )}`;
     try {
@@ -46,7 +46,7 @@ export default function Water() {
   }, []);
 
   useEffect(async () => {
-    const URL_API_WEIGHT = `http://localhost:4000/weight`;
+    const URL_API_WEIGHT = `https://every-single-day.herokuapp.com/weight`;
     try {
       const responseWeight = await axios.get(URL_API_WEIGHT, config);
       setWeight(responseWeight.data[0].weight);
