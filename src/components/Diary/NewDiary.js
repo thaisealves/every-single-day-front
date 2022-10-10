@@ -36,10 +36,18 @@ export default function NewDiary() {
         defaultValue={diary}
         onChange={(e) => setDiary(e.target.value)}
         fullWidth={true}
+        data-cy="newdiary"
       />
       <Adding>
-        <Cancel onClick={() => navigate("/diary")}>Cancel</Cancel>
-        <Send onClick={() => handleSend(diary, config, navigate)}>Send</Send>
+        <Cancel data-cy="cancel" onClick={() => navigate("/diary")}>
+          Cancel
+        </Cancel>
+        <Send
+          data-cy="send"
+          onClick={() => handleSend(diary, config, navigate)}
+        >
+          Send
+        </Send>
       </Adding>
     </Container>
   );

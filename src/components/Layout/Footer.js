@@ -15,19 +15,19 @@ export default function Footer() {
   return (
     <IconContext.Provider value={{ color: "#355326", size: "20px" }}>
       <Container>
-        <Link data-cy="exercises" to={"/exercises"}>
+        <Link data-cy="exercisesFooter" to={"/exercises"}>
           <CgGym />
         </Link>
-        <Link data-cy="water"to={"/water"}>
+        <Link data-cy="waterFooter"to={"/water"}>
           <MdOutlineWaterDrop />
         </Link>
-        <Link data-cy="home"to={"/home"}>
+        <Link data-cy="homeFooter"to={"/home"}>
           <MdOutlineViewQuilt />
         </Link>
-        <Link data-cy="diary" to={"/diary"}>
+        <Link data-cy="diaryFooter" to={"/diary"}>
           <TbNotebook />
         </Link>
-        <Link data-cy="food"to={"/food"}>
+        <Link data-cy="foodFooter"to={"/food"}>
           <MdOutlineRestaurant />
         </Link>
       </Container>
