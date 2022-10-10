@@ -9,6 +9,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 export default function Diary() {
   const { setPageName } = useContext(PageContext);
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!token) {
+      alert("You must login")
+      navigate("/");
+    }
+  }, [token]);
   useEffect(() => {
     setPageName("Diary");
   }, []);
@@ -16,10 +24,8 @@ export default function Diary() {
   const [open, setOpen] = useState(false);
   const [diaries, setDiaries] = useState([]);
 
-  const navigate = useNavigate();
   const date = dayjs();
 
-  const token = localStorage.getItem("token");
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,

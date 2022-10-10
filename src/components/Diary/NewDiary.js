@@ -24,6 +24,12 @@ export default function NewDiary() {
       Authorization: `Bearer ${token}`,
     },
   };
+  useEffect(() => {
+    if (!token) {
+      alert("You must login")
+      navigate("/");
+    }
+  }, [token]);
   return (
     <Container>
       <h2>{date}</h2>

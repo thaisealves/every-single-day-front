@@ -26,6 +26,12 @@ export default function Water() {
       Authorization: `Bearer ${token}`,
     },
   };
+  useEffect(() => {
+    if (!token) {
+      alert("You must login")
+      navigate("/");
+    }
+  }, [token]);
   useEffect(async () => {
     const URL_API_WATER = `http://localhost:4000/water/${date.format(
       "DD-MM-YYYY"
@@ -63,7 +69,6 @@ export default function Water() {
     ,
   ];
   const percentage = (water / (weight * 0.05)) * 100;
-  console.log(percentage);
   return (
     <Container>
       <h1>{date.format("DD/MM/YYYY, dddd")}</h1>
