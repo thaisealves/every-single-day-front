@@ -62,7 +62,7 @@ export default function Home() {
     const response = await axios.get(URL_VISION_GET, config);
     setVisions(response.data);
   }, []);
-  
+
   const handleMood = async (event, newMood) => {
     const URL_MOOD = `http://localhost:4000/mood`;
     const createdAt = date.format("DD-MM-YYYY");
@@ -89,8 +89,9 @@ export default function Home() {
           exclusive
           onChange={handleMood}
           aria-label="Moods"
+          data-cy="mood"
         >
-          <ToggleButton value="happy" aria-label="happy">
+          <ToggleButton data-cy="clickMood" value="happy" aria-label="happy">
             <Happy />
           </ToggleButton>
           <ToggleButton value="good" aria-label="good">
@@ -108,7 +109,7 @@ export default function Home() {
         </ToggleButtonGroup>
       </Mood>
       {visions.length > 0 ? (
-        <Pictures>
+        <Pictures data-cy="pictures">
           <ImageList variant="masonry">
             {visions.map((item) => (
               <ImageListItem key={item.id}>
@@ -141,12 +142,14 @@ export default function Home() {
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
+        data-cy="speedDial"
       >
         <SpeedDialAction
           icon={<HiOutlinePhotograph />}
           tooltipTitle={"Vision"}
           tooltipOpen
           onClick={() => navigate("/vision")}
+          data-cy="addPic"
         />
       </SpeedDial>
     </Container>

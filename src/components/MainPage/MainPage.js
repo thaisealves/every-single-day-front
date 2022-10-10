@@ -13,8 +13,10 @@ export default function MainPage() {
       </div>
       <div>
         <Buttons>
-          <LoginButton onClick={() => navigate("/login")}>Login</LoginButton>
-          <SignUpButton onClick={() => navigate("/signup")}>
+          <LoginButton data-cy="login" onClick={() => navigate("/login")}>
+            Login
+          </LoginButton>
+          <SignUpButton data-cy="signup" onClick={() => navigate("/signup")}>
             Sign Up
           </SignUpButton>
         </Buttons>

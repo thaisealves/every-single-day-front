@@ -57,11 +57,11 @@ export default function Diary() {
       ) : (
         diaries.map((el) =>
           el.type === "diary" ? (
-            <Texts>
+            <Texts data-cy="text">
               <h1>Diary</h1> <Box>{el.text}</Box>
             </Texts>
           ) : (
-            <Texts>
+            <Texts data-cy="text">
               <h1>Plans</h1>
               <Box>{el.text}</Box>
             </Texts>
@@ -84,6 +84,7 @@ export default function Diary() {
             tooltipOpen
             key={el.type}
             id={el.type}
+            data-cy={el.type}
             onClick={() => handleAction(el.type, navigate)}
           />
         ))}

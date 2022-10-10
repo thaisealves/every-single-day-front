@@ -28,11 +28,15 @@ export default function AddVision() {
         value={image}
         onChange={(e) => setImage(e.target.value)}
         required
+        data-cy="newVision"
       />
       <Adding>
-        <Cancel onClick={() => navigate("/home")}>Cancel</Cancel>
+        <Cancel onClick={() => navigate("/home")} data-cy="cancel">
+          Cancel
+        </Cancel>
         <Send
           onClick={() => handleSend(URL_VISION_POST, image, config, setImage)}
+          data-cy="send"
         >
           Send
         </Send>
