@@ -62,4 +62,25 @@ describe("Diaries possibilities", () => {
 
     cy.get('[data-cy="text"]').should("have.length", 1);
   });
+  it("Cancel sending on diary", () => {
+    cy.visit("http://localhost:3000/");
+
+    const user = newUser();
+    cy.intercept("POST");
+    cy.intercept("POST", "http://localhost:4000/signup").as("newUser");
+    cy.signUp(user);
+
+    cy.wait("@newUser");
+    cy.login(user);
+
+    cy.url().should("equal", "http://localhost:3000/home");
+    cy.get('[data-cy="diaryFooter"]').click();
+    cy.url().should("equal", "http://localhost:3000/diary");
+    cy.get('[data-cy="diary"]').click({ force: true });
+    cy.url().should("equal", "http://localhost:3000/newdiary");
+    cy.get('[data-cy="cancel"]').click();
+    cy.url().should("equal", "http://localhost:3000/diary");
+
+    cy.get('[data-cy="text"]').should("have.length", 0);
+  });
 });
