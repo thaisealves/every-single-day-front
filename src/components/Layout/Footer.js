@@ -20,9 +20,9 @@ export default function Footer() {
   return (
     <IconContext.Provider value={{ color: "#355326", size: "20px" }}>
       <Container>
-        {/* <Link data-cy="exercisesFooter" to={"/exercises"}> */}
+        <Link data-cy="exercisesFooter" to={"/exercises"}>
           <CgGym />
-        {/* </Link> */}
+        </Link>
         <Link data-cy="waterFooter" to={"/water"}>
           <MdOutlineWaterDrop />
         </Link>
@@ -32,9 +32,9 @@ export default function Footer() {
         <Link data-cy="diaryFooter" to={"/diary"}>
           <TbNotebook />
         </Link>
-        {/* <Link data-cy="foodFooter" to={"/food"}> */}
+        <Link data-cy="foodFooter" to={"/food"}>
           <MdOutlineRestaurant />
-        {/* </Link> */}
+        </Link>
       </Container>
     </IconContext.Provider>
   );
@@ -47,7 +47,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px;
+  padding: 0 50px;
   box-sizing: border-box;
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.103);
   position: fixed;

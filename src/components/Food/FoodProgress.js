@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import construction from "../assets/images/construction.gif";
+import construction from "../../assets/images/construction.gif";
 import { useContext, useEffect } from "react";
-import PageContext from "./PageContext";
-export default function Exercises() {
+import PageContext from "../PageContext";
+export default function Food() {
   const { setPageName } = useContext(PageContext);
   useEffect(() => {
-    setPageName("Exercises");
+    setPageName("Food Plan");
   }, []);
   return (
     <Container>

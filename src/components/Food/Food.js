@@ -1,21 +1,21 @@
-import { Container, BorderLinearProgress, Amount } from "./MainWaterStyle";
+import { Container, BorderLinearProgress, Amount } from "./FoodStyle";
 import { useContext, useEffect, useState } from "react";
 import PageContext from "../PageContext";
 import { SpeedDialAction, SpeedDial, SpeedDialIcon } from "@mui/material";
 import dayjs from "dayjs";
-import { FaWeight } from "react-icons/fa";
-import { GiWaterBottle } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
+import { MdOutlineFoodBank } from "react-icons/md";
+import { AiOutlineFieldNumber } from "react-icons/ai";
 import axios from "axios";
-export default function Water() {
+export default function Food() {
   const { setPageName } = useContext(PageContext);
   useEffect(() => {
-    setPageName("Water");
+    setPageName("Food Plan");
   }, []);
 
   const [open, setOpen] = useState(false);
-  const [water, setWater] = useState([]);
-  const [weight, setWeight] = useState([]);
+  const [food, setFood] = useState([]);
+  const [number, setNumber] = useState([]);
 
   const navigate = useNavigate();
   const date = dayjs();
@@ -33,63 +33,74 @@ export default function Water() {
     }
   }, [token]);
   useEffect(async () => {
-    const URL_API_WATER = `https://every-single-day.herokuapp.com/water/${date.format(
+    const URL_API_FOOD = `http://localhost:4000/food/${date.format(
       "DD-MM-YYYY"
     )}`;
     try {
-      const responseWater = await axios.get(URL_API_WATER, config);
-      setWater(responseWater.data.waterQuantity);
+      const responseFood = await axios.get(URL_API_FOOD, config);
+      setFood(responseFood.data);
     } catch (error) {
       console.log(error);
-      setWater(0);
+      setFood(0);
     }
   }, []);
 
   useEffect(async () => {
-    const URL_API_WEIGHT = `https://every-single-day.herokuapp.com/weight`;
+    const URL_API_NUMBER = `https://every-single-day.herokuapp.com/number`;
     try {
-      const responseWeight = await axios.get(URL_API_WEIGHT, config);
-      setWeight(responseWeight.data[0].weight);
+      const responsenumber = await axios.get(URL_API_NUMBER, config);
+      setNumber(responsenumber.data[0].number);
     } catch (error) {
       console.log(error);
-      setWeight(null);
+      setNumber(null);
     }
   }, []);
   const dials = [
     {
-      icon: <FaWeight />,
-      name: "Weight",
-      type: "weight",
+      icon: <AiOutlineFieldNumber />,
+      name: "Nº of meals",
+      type: "number",
     },
     {
-      icon: <GiWaterBottle />,
-      name: "Water",
-      type: "water",
+      icon: <MdOutlineFoodBank />,
+      name: "Meal",
+      type: "meal",
     },
     ,
   ];
-  const percentage = (water / (weight * 0.05)) * 100;
+  const percentage = (food / number) * 100;
   return (
     <Container>
       <h1>{date.format("DD/MM/YYYY, dddd")}</h1>
-      {weight ? (
+      {number ? (
+        <>
+          <h1>You've ate {food}/{number} number</h1>
+          <BorderLinearProgress
+            color="success"
+            variant="determinate"
+            value={percentage > 100 ? 100 : percentage}
+            data-cy="progress"
+          />
+        </>
+      ) : null}
+      {number ? (
         <Amount data-cy="amount">
           <h1>
-            Ideal amount of Water:
-            <span> {(weight * 0.05).toFixed(2)}L/Day </span>
+            Ideal amount of food:
+            <span> {(number * 0.05).toFixed(2)}L/Day </span>
           </h1>
           <h1>
-            Min. amount of Water:<span> {(weight * 0.03).toFixed(2)}L/Day</span>
+            Min. amount of food:<span> {(number * 0.03).toFixed(2)}L/Day</span>
           </h1>
-          {water ? (
+          {food ? (
             <>
               <h1>
-                You've drinked: <span> {water}L</span>
+                You've drinked: <span> {food}L</span>
               </h1>
               <BorderLinearProgress
                 color="success"
                 variant="determinate"
-                value={percentage > 100 ? 100 : percentage}
+                value={percentage}
                 data-cy="progress"
               />
             </>
@@ -97,18 +108,16 @@ export default function Water() {
         </Amount>
       ) : (
         <Amount>
-          {water ? (
+          {food ? (
             <h1>
-              You've drinked: <span> {water}L</span>
+              You've drinked: <span> {food}</span>
             </h1>
           ) : null}
-          <h1>
-            Set up your weight to see how much water you should be drinking
-          </h1>
+          <h1>Write down your number here!</h1>
         </Amount>
       )}
       <SpeedDial
-        ariaLabel="Adding an amount of water"
+        ariaLabel="Adding a meal"
         sx={{ position: "fixed", bottom: 65, right: 16 }}
         icon={<SpeedDialIcon />}
         onClose={() => setOpen(false)}
@@ -132,9 +141,9 @@ export default function Water() {
 }
 
 function handleAction(type, navigate) {
-  if (type === "weight") {
-    navigate("/addweight");
-  } else if (type === "water") {
-    navigate("/addwater");
+  if (type === "meal") {
+    navigate("/addfood");
+  } else if (type === "number") {
+    navigate("/numbernum");
   }
 }

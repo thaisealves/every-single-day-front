@@ -53,4 +53,7 @@ const Container = styled.div`
 const User = styled(BiUser)`
   color: #355326;
   font-size: 18px;
+  &:hover {
+    cursor: pointer;
+  }
 `;

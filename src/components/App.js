@@ -1,7 +1,7 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Diary from "./Diary/Diary";
 import Exercises from "./Exercises";
-import Food from "./Food";
+import Food from "./Food/FoodProgress"
 import Home from "./Home/Home";
 import Login from "./Login/Login";
 import MainPage from "./MainPage/MainPage";

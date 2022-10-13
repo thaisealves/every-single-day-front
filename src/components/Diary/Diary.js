@@ -76,7 +76,7 @@ export default function Diary() {
       )}
 
       <SpeedDial
-        ariaLabel="Adding a vision"
+        ariaLabel="Adding a diary"
         sx={{ position: "fixed", bottom: 65, right: 16 }}
         icon={<SpeedDialIcon />}
         onClose={() => setOpen(false)}
