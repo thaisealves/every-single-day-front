@@ -13,7 +13,9 @@ This is a project designed and developed by me. The idea is to have the user to 
 <div align="center">
 
   <h3>Built With</h3>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" height="30px" alt="React" title="React"/>
+  
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" height="30px" alt="React" title="React"/>
+  <img src="https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e" height="30px" alt="Cypress" title="Cypress"/>
 </div>
 
 ## Features:
@@ -23,7 +25,7 @@ This is a project designed and developed by me. The idea is to have the user to 
 - Post an image on a vision board
 - Selecting what's the user humor for the day
 - Get the track of how much water was drinked
-- Having a place to write water and plans
+- Having a place to post water and plans
 
 # References
 

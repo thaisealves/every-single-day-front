@@ -66,7 +66,7 @@ export default function AddWater() {
 
 async function handleSend(water, config, navigate) {
   const createdAt = dayjs().format("DD-MM-YYYY");
-  const URL_API = "swater";
+  const URL_API = "https://every-single-day.herokuapp.com/water";
   const body = {
     waterQuantity: Number(water),
     createdAt,
