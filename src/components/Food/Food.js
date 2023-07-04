@@ -33,7 +33,7 @@ export default function Food() {
     }
   }, [token]);
   useEffect(async () => {
-    const URL_API_FOOD = `http://localhost:4000/food/${date.format(
+    const URL_API_FOOD = `https://esd-back.onrender.com/food/${date.format(
       "DD-MM-YYYY"
     )}`;
     try {
@@ -46,7 +46,7 @@ export default function Food() {
   }, []);
 
   useEffect(async () => {
-    const URL_API_NUMBER = `https://every-single-day.herokuapp.com/number`;
+    const URL_API_NUMBER = `https://esd-back.onrender.com/number`;
     try {
       const responsenumber = await axios.get(URL_API_NUMBER, config);
       setNumber(responsenumber.data[0].number);

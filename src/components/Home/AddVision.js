@@ -11,7 +11,7 @@ import {
 } from "./AddVisionStyle";
 
 export default function AddVision() {
-  const URL_VISION_POST = "https://every-single-day.herokuapp.com/vision";
+  const URL_VISION_POST = "https://esd-back.onrender.com/vision";
   const { setPageName } = useContext(PageContext);
   useEffect(() => {
     setPageName("Vision Board");

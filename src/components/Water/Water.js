@@ -33,7 +33,7 @@ export default function Water() {
     }
   }, [token]);
   useEffect(async () => {
-    const URL_API_WATER = `https://every-single-day.herokuapp.com/water/${date.format(
+    const URL_API_WATER = `https://esd-back.onrender.com/water/${date.format(
       "DD-MM-YYYY"
     )}`;
     try {
@@ -46,7 +46,7 @@ export default function Water() {
   }, []);
 
   useEffect(async () => {
-    const URL_API_WEIGHT = `https://every-single-day.herokuapp.com/weight`;
+    const URL_API_WEIGHT = `https://esd-back.onrender.com/weight`;
     try {
       const responseWeight = await axios.get(URL_API_WEIGHT, config);
       setWeight(responseWeight.data[0].weight);

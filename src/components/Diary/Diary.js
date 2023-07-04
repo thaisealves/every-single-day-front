@@ -32,7 +32,7 @@ export default function Diary() {
     },
   };
   useEffect(async () => {
-    const URL_API = `https://every-single-day.herokuapp.com/diary/${date.format("DD-MM-YYYY")}`;
+    const URL_API = `https://esd-back.onrender.com/diary/${date.format("DD-MM-YYYY")}`;
     try {
       const response = await axios.get(URL_API, config);
       setDiaries(response.data);
